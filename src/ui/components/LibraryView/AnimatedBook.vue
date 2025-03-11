@@ -15,8 +15,8 @@
           <!-- Pages -->
           <ul class='page'>
             <li></li>
-            <li>
-              <a class="btn" href="#">Modifier</a>
+            <li class="cursor-pointer action" @click="$emit('pageClick')">
+              <span>{{ content }}</span>
             </li>
             <li></li>
             <li></li>
@@ -37,13 +37,19 @@
     </ul>
 
   <!--For screen reader only-->
-  <button class="opacity-0 position-absolute" type="button">Modifier le livre: {{title}}</button>
+  <div class="opacity-0 position-absolute">
+    <p>{{title}}</p>
+    <button type="button">{{content}}</button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { computed } from "vue";
 
-const { color = 'darkred' } = defineProps({title: String, color: String});
+const {
+  color = 'darkred',
+  content = 'Modifier'
+} = defineProps({title: String, content: String, color: String});
 
 const coverColorStyle = computed((): string => {
   return `background-color: ${color};
@@ -63,28 +69,20 @@ ul {
   list-style: none;
 }
 
-a {
-  color: #2c3e50;
+.action > span{
+  color: #302c2b;
   text-decoration: none;
-}
-
-.btn {
   display: inline-block;
   text-transform: uppercase;
-  border: 2px solid #2c3e50;
-  margin-top: 100px;
-  font-size: 0.7em;
+  margin-top: 50%;
+  font-size: 1em;
   font-weight: 700;
-  padding: 0.1em 0.4em;
-  text-align: center;
-  -webkit-transition: color 0.3s, border-color 0.3s;
-  -moz-transition: color 0.3s, border-color 0.3s;
-  transition: color 0.3s, border-color 0.3s;
 }
 
-.btn:hover {
-  border-color: rgba(var(--v-theme-primary));
-  color: rgba(var(--v-theme-primary));
+.action:hover {
+  span {
+    color: rgba(var(--v-theme-primary));
+  }
 }
 
 /* basic grid, only for this demo */
