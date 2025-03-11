@@ -1,11 +1,13 @@
 import { defineStore } from 'pinia';
 import {GamebookAPIRepository} from "@/infrastructure/repositories/GamebookAPIRepository.ts";
 import type {GamebookRepository} from "@/domain/repositories/GamebookRepository.ts";
+import type {GamebookTree} from "@/domain/models/GamebookTree.ts";
 import type {Gamebook} from "@/domain/models/Gamebook.ts";
 
 interface GamebookState {
   gamebooks: Gamebook[];
   currentGamebook: Gamebook | null;
+  currentGamebookTree: GamebookTree | null;
   loading: boolean;
   error: string | null;
 }
@@ -16,6 +18,7 @@ export const useGamebookStore = defineStore('gamebook', {
   state: (): GamebookState => ({
     gamebooks: [],
     currentGamebook: null,
+    currentGamebookTree: null,
     loading: false,
     error: null
   }),
@@ -47,6 +50,23 @@ export const useGamebookStore = defineStore('gamebook', {
 
         this.currentGamebook = gamebook;
         return gamebook;
+      } catch (error: unknown) {
+        this.error = error.message;
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    async fetchGamebookTree(id: string): Promise<GamebookTree> {
+      this.loading = true;
+      this.error = null;
+
+      try {
+        const gamebookTree = await gamebookRepository.getTree(id);
+
+        this.currentGamebookTree = gamebookTree;
+        return gamebookTree;
       } catch (error: unknown) {
         this.error = error.message;
         throw error;

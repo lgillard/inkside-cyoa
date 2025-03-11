@@ -1,5 +1,6 @@
 import type {GamebookRepository} from "@/domain/repositories/GamebookRepository.ts";
 import {Gamebook} from "@/domain/models/Gamebook.ts";
+import {GamebookTree} from "@/domain/models/GamebookTree.ts";
 
 export class GamebookAPIRepository implements GamebookRepository {
   delete(id: string): Promise<void> {
@@ -25,5 +26,25 @@ export class GamebookAPIRepository implements GamebookRepository {
 
   edit(gamebook: Gamebook): Promise<Gamebook> {
     return Promise.resolve(gamebook);
+  }
+
+  getTree(id: string): Promise<GamebookTree> {
+    return Promise.resolve(
+      new GamebookTree(
+        id,
+        'A random title',
+        [
+          {id: '1', title: '1'},
+          {id: '2', title: '2'},
+          {id: '3', title: '3'},
+          {id: '4', title: '4'},
+        ],
+        [
+          {sourceId: '1', targetId: '2'},
+          {sourceId: '1', targetId: '3'},
+          {sourceId: '3', targetId: '4'},
+        ]
+      )
+    );
   }
 }
