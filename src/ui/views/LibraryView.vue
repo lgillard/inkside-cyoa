@@ -7,11 +7,11 @@
           :title="gamebook.title"
           content="Créer"
           color="gray"
-          @page-click="router.push(`/gamebook/new`)"/>
+          @click="router.push(`/gamebook/new`)"/>
       <AnimatedBook
           v-else
           :title="gamebook.title"
-          @page-click="router.push(`/gamebook/${gamebook.id}`)"/>
+          @click="router.push(`/gamebook/${gamebook.id}`)"/>
     </template>
   </div>
 </template>

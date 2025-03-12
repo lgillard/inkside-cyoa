@@ -1,5 +1,6 @@
 <template>
-  <ul class="align d-inline-block my-3 mx-7" aria-hidden="true">
+  <button>
+    <ul class="align d-inline-block my-3 mx-7" aria-hidden="true">
       <li>
         <figure class='book'>
           <!-- Cover -->
@@ -15,8 +16,8 @@
           <!-- Pages -->
           <ul class='page'>
             <li></li>
-            <li class="cursor-pointer action" @click="$emit('pageClick')">
-              <span>{{ content }}</span>
+            <li>
+              <span class="action-text">{{ content }}</span>
             </li>
             <li></li>
             <li></li>
@@ -36,11 +37,9 @@
       </li>
     </ul>
 
-  <!--For screen reader only-->
-  <div class="opacity-0 position-absolute">
-    <p>{{title}}</p>
-    <button type="button">{{content}}</button>
-  </div>
+    <!--For screen reader only-->
+    <span class="opacity-0 position-absolute">{{title}} : {{content}}</span>
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -69,7 +68,7 @@ ul {
   list-style: none;
 }
 
-.action > span{
+.action-text {
   color: #302c2b;
   text-decoration: none;
   display: inline-block;
@@ -79,16 +78,17 @@ ul {
   font-weight: 700;
 }
 
-.action:hover {
-  span {
-    color: rgba(var(--v-theme-primary));
-  }
-}
-
 /* basic grid, only for this demo */
 
-.align {
+button {
   text-align: center;
+}
+
+button:hover,
+button:focus {
+  .action-text {
+    color: rgba(var(--v-theme-primary));
+  }
 }
 
 .book {
@@ -117,17 +117,17 @@ ul {
 
 /* reverse */
 .hardcover_front li:last-child {
-  background: #fffbec;
+  background: #bdbdbd;
 }
 
 /* HARDCOVER BACK */
 .hardcover_back li:first-child {
-  background: #fffbec;
+  background: #bdbdbd;
 }
 
 /* reverse */
 .hardcover_back li:last-child {
-  background: #fffbec;
+  background: #bdbdbd;
 }
 
 .book_spine li:first-child {
@@ -493,14 +493,16 @@ ul {
   5. events
 */
 
-.book:hover > .hardcover_front {
+.book:hover > .hardcover_front,
+.book:focus > .hardcover_front {
   -webkit-transform: rotateY(-145deg) translateZ(0);
   -moz-transform: rotateY(-145deg) translateZ(0);
   transform: rotateY(-145deg) translateZ(0);
   z-index: 0;
 }
 
-.book:hover > .page li:nth-child(1) {
+.book:hover > .page li:nth-child(1),
+.book:focus > .page li:nth-child(1) {
   -webkit-transform: rotateY(-30deg);
   -moz-transform: rotateY(-30deg);
   transform: rotateY(-30deg);
@@ -509,7 +511,8 @@ ul {
   transition-duration: 1.5s;
 }
 
-.book:hover > .page li:nth-child(2) {
+.book:hover > .page li:nth-child(2),
+.book:focus > .page li:nth-child(2) {
   -webkit-transform: rotateY(-35deg);
   -moz-transform: rotateY(-35deg);
   transform: rotateY(-35deg);
@@ -518,7 +521,8 @@ ul {
   transition-duration: 1.8s;
 }
 
-.book:hover > .page li:nth-child(3) {
+.book:hover > .page li:nth-child(3),
+.book:focus > .page li:nth-child(3) {
   -webkit-transform: rotateY(-118deg);
   -moz-transform: rotateY(-118deg);
   transform: rotateY(-118deg);
@@ -527,7 +531,8 @@ ul {
   transition-duration: 1.6s;
 }
 
-.book:hover > .page li:nth-child(4) {
+.book:hover > .page li:nth-child(4),
+.book:focus > .page li:nth-child(4) {
   -webkit-transform: rotateY(-130deg);
   -moz-transform: rotateY(-130deg);
   transform: rotateY(-130deg);
@@ -536,7 +541,8 @@ ul {
   transition-duration: 1.4s;
 }
 
-.book:hover > .page li:nth-child(5) {
+.book:hover > .page li:nth-child(5),
+.book:focus > .page li:nth-child(5) {
   -webkit-transform: rotateY(-140deg);
   -moz-transform: rotateY(-140deg);
   transform: rotateY(-140deg);
@@ -650,7 +656,7 @@ ul {
 
 /* Media Queries */
 @media screen and (max-width: 37.8125em) {
-  .align > li {
+  button > li {
     width: 100%;
     min-height: 440px;
     height: auto;
