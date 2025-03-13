@@ -1,18 +1,54 @@
 <template>
-  <div class="my-8 mx-16 position-relative">
+  <div class="my-8 mx-16 position-relative" v-for="shelf in shelfs">
     <ShelfImg class="position-absolute" style="margin-top: 210px"/>
-    <AnimatedBook
-      v-for="gamebook in gamebooksStore.gamebooks"
-      :key="gamebook.id"
-      :title="gamebook.title"
-    />
+    <template v-for="gamebook in shelf" :key="gamebook.id">
+      <AnimatedBook
+          v-if="gamebook.id === '0'"
+          :title="gamebook.title"
+          content="Créer"
+          color="gray"
+          @page-click="router.push(`/gamebook/new`)"/>
+      <AnimatedBook
+          v-else
+          :title="gamebook.title"
+          @page-click="router.push(`/gamebook/${gamebook.id}`)"/>
+    </template>
   </div>
 </template>
 <script setup lang="ts">
   import {useGamebookStore} from "@/application/stores/gamebook.store.ts";
   import AnimatedBook from "@/ui/components/LibraryView/AnimatedBook.vue";
   import ShelfImg from "@/ui/components/icons/ShelfElement.vue";
+  import {useRouter} from "vue-router";
+  import {onUnmounted, ref, watch} from "vue";
+  import {Gamebook} from "@/domain/models/Gamebook.ts";
+  import {storeToRefs} from "pinia";
+
+  const router = useRouter();
+  const shelfs: ref<Array<Array<Gamebook>>> = ref([]);
 
   const gamebooksStore = useGamebookStore();
+
+  const { gamebooks } = storeToRefs(gamebooksStore)
   gamebooksStore.fetchGamebooks();
+
+  const refreshShelfs = (gamebooksList: Array<Gamebook>) => {
+    const booksByShelf = Math.trunc((window.innerWidth - 176) / 217);
+
+    shelfs.value = [[new Gamebook('0', 'Nouveau livre')]];
+    for(let i = 1; i<=gamebooksList.length; i++) {
+      if(! shelfs.value[Math.trunc(i/booksByShelf)]) {
+        shelfs.value[Math.trunc(i/booksByShelf)] = [];
+      }
+      shelfs.value[Math.trunc(i/booksByShelf)].push(gamebooksList[i-1]);
+    }
+  }
+
+  watch(gamebooks, refreshShelfs);
+  const refreshShelfsOnResize = () => refreshShelfs(gamebooksStore.gamebooks);
+  window.addEventListener("resize", refreshShelfsOnResize);
+
+  onUnmounted(() => {
+    window.removeEventListener("resize", refreshShelfsOnResize);
+  });
 </script>
