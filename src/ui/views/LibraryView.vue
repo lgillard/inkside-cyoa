@@ -11,6 +11,7 @@
       <AnimatedBook
           v-else
           :title="gamebook.title"
+          :color="gamebook.coverColor"
           @click="router.push(`/gamebook/${gamebook.id}`)"/>
     </template>
   </div>
