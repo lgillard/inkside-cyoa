@@ -3,6 +3,7 @@
       :value="props.modelValue"
       @input="emit('update:modelValue', $event.target.value)"
       type="color"
+      class="cursor-pointer"
   />
 </template>
 
