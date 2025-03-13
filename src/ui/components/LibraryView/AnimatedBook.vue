@@ -78,8 +78,6 @@ ul {
   font-weight: 700;
 }
 
-/* basic grid, only for this demo */
-
 button {
   text-align: center;
 }
