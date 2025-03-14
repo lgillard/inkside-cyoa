@@ -1,4 +1,6 @@
 <template>
+  <h2 class="text-primary text-h4 my-4">Ma bibliothèque</h2>
+
   <div class="my-8 mx-16 position-relative" v-for="shelf in shelfs">
     <ShelfImg class="position-absolute" style="margin-top: 210px"/>
     <template v-for="gamebook in shelf" :key="gamebook.id">
