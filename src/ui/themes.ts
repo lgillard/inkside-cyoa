@@ -1,17 +1,4 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import {createVuetify} from 'vuetify'
-
-import App from '../ui/App.vue'
-import router from './router'
-import 'vuetify/styles'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-
-const pinia = createPinia();
-const app = createApp(App)
-
-const myCustomLightTheme = {
+export const myCustomLightTheme = {
   dark: false,
   colors: {
     background: '#FEFEF5',
@@ -26,7 +13,7 @@ const myCustomLightTheme = {
   },
 }
 
-const myCustomDarkTheme = {
+export const myCustomDarkTheme = {
   dark: true,
   colors: {
     background: '#302c2b',
@@ -41,7 +28,7 @@ const myCustomDarkTheme = {
   },
 }
 
-const myCustomDeuteranopiaLightTheme = {
+export const myCustomDeuteranopiaLightTheme = {
   dark: false,
   colors: {
     background: '#FEFEF5',
@@ -56,7 +43,7 @@ const myCustomDeuteranopiaLightTheme = {
   },
 }
 
-const myCustomDeuteranopiaDarkTheme = {
+export const myCustomDeuteranopiaDarkTheme = {
   dark: true,
   colors: {
     background: '#302c2b',
@@ -70,24 +57,3 @@ const myCustomDeuteranopiaDarkTheme = {
     error: '#75aace',
   },
 }
-
-
-const vuetify = createVuetify({
-  theme: {
-    defaultTheme: 'myCustomDarkTheme',
-    themes: {
-      myCustomLightTheme,
-      myCustomDarkTheme,
-      myCustomDeuteranopiaLightTheme,
-      myCustomDeuteranopiaDarkTheme,
-    },
-  },
-  components,
-  directives,
-})
-
-app.use(vuetify)
-app.use(pinia)
-app.use(router)
-
-app.mount('#app')
