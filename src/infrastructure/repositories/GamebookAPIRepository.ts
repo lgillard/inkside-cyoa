@@ -30,21 +30,22 @@ export class GamebookAPIRepository implements GamebookRepository {
 
   getTree(id: string): Promise<GamebookTree> {
     return Promise.resolve(
-      new GamebookTree(
+      Object.assign(new GamebookTree(), {
         id,
-        'A random title',
-        [
+        title: 'Alice au pays des enfers...',
+        sections: [
           {id: '1', title: '1'},
+
           {id: '2', title: '2'},
           {id: '3', title: '3'},
           {id: '4', title: '4'},
         ],
-        [
+        paths: [
           {sourceId: '1', targetId: '2'},
           {sourceId: '1', targetId: '3'},
           {sourceId: '3', targetId: '4'},
         ]
-      )
+      })
     );
   }
 }
