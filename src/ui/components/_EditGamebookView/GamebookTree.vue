@@ -1,6 +1,7 @@
 <template>
   <v-network-graph
     class="graph"
+    v-model:selected-nodes="selectedNodes"
     :nodes="nodes"
     :edges="edges"
     :layouts="layouts"
@@ -21,11 +22,12 @@ import {NetworkElmtFactory} from "@/domain/NetworkElmtFactory.ts";
 const configs = vNG.defineConfigs({
   view: {
     autoPanAndZoomOnLoad: "fit-content",
-    onBeforeInitialDisplay: () => layout(),
+    onBeforeInitialDisplay: () => updateNodesPosition(),
     zoomEnabled: false,
   },
   node: {
     draggable: false,
+    selectable: 1,
   },
 })
 
@@ -37,8 +39,9 @@ const edges = ref(networkFactory.buildEdges());
 const layouts: Layouts = reactive({
   nodes: {},
 })
+const selectedNodes = ref<string[]>([])
 
-function layout() {
+function updateNodesPosition() {
   if (Object.keys(nodes.value).length <= 1 || Object.keys(edges.value).length == 0) {
     return
   }

@@ -36,10 +36,15 @@ body {
 
 main {
   margin: 0 16px;
+  cursor: default;
 }
 
 .logo {
   height: 100px;
   width: 100px
+}
+
+.v-ng-node {
+  cursor: pointer;
 }
 </style>
