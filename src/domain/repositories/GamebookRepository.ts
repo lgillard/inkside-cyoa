@@ -8,4 +8,5 @@ export interface GamebookRepository {
   create(gamebook: Gamebook): Promise<Gamebook>;
   edit(gamebook: Gamebook): Promise<Gamebook>;
   delete(id: string): Promise<void>;
+  editTitle(gamebookId: string, newTitle: string): Promise<Gamebook>;
 }

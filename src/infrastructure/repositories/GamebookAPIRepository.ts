@@ -9,9 +9,24 @@ export class GamebookAPIRepository implements GamebookRepository {
 
   getAll(): Promise<Gamebook[]> {
     return Promise.resolve([
-      new Gamebook('1', 'Mon incroyable aventure', 'Monsieur Charles', '#EE8152'),
-      new Gamebook('2', 'Il était une fois', 'CK. Martins', '#EE8152'),
-      new Gamebook('3', 'Magic magic', 'Jule jule', '#EE8152'),
+      Object.assign(new Gamebook(), {
+        id: '1',
+        title: 'Mon incroyable aventure',
+        authorName: 'Mr. Charles',
+        coverColor: '#EE8152',
+      }),
+      Object.assign(new Gamebook(), {
+        id: '123',
+        title: 'Il était une fois',
+        authorName: 'Martins Martins',
+        coverColor: '#1F1DE1',
+      }),
+      Object.assign(new Gamebook(), {
+        id: '666',
+        title: 'Welcome to magic hell',
+        authorName: 'John Jule',
+        coverColor: '#EE8152',
+      }),
     ]);
   }
 
@@ -45,6 +60,17 @@ export class GamebookAPIRepository implements GamebookRepository {
           {sourceId: '1', targetId: '3'},
           {sourceId: '3', targetId: '4'},
         ]
+      })
+    );
+  }
+
+  editTitle(gamebookId: string, newTitle: string): Promise<Gamebook> {
+    return Promise.resolve(
+      Object.assign(new Gamebook(), {
+        id: gamebookId,
+        title: newTitle,
+        authorName: 'John Doe',
+        coverColor: '#1F1DE1',
       })
     );
   }

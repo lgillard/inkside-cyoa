@@ -12,6 +12,7 @@ import {
   myCustomDeuteranopiaLightTheme,
   myCustomLightTheme
 } from "@/ui/themes.ts";
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
 const pinia = createPinia();
 const app = createApp(App)
@@ -24,6 +25,13 @@ const vuetify = createVuetify({
       myCustomDarkTheme,
       myCustomDeuteranopiaLightTheme,
       myCustomDeuteranopiaDarkTheme,
+    },
+  },
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
     },
   },
   components,

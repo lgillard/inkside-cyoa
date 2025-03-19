@@ -123,6 +123,31 @@ export const useGamebookStore = defineStore('gamebook', {
       }
     },
 
+    async editGamebookTitle(gamebookId: string, newTitle: string): Promise<Gamebook> {
+      this.loading = true;
+      this.error = null;
+
+      try {
+        const savedGamebook = await gamebookRepository.editTitle(gamebookId, newTitle);
+
+        if(gamebookId === this.currentGamebookTree.id) {
+          this.currentGamebookTree.title = savedGamebook.title;
+        }
+
+        const index = this.gamebooks.findIndex(g => g.id === savedGamebook.id);
+        if (index !== -1) {
+          this.gamebooks[index] = savedGamebook;
+        }
+
+        return savedGamebook;
+      } catch (error: unknown) {
+        this.error = error.message;
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+
     async deleteGamebook(id: string): Promise<void> {
       this.loading = true;
       this.error = null;
