@@ -7,9 +7,9 @@
   </div>
   <form class="d-flex" v-else>
     <input type="text" class="text-primary text-h4 my-4" v-model="gamebookTitle"/>
-    <MyButton class="btn" @click="saveTitle">
+    <v-btn class="btn" @click="saveTitle">
       <v-icon :icon="mdiCheck" title="Sauvegarder le titre du livre"/>
-    </MyButton>
+    </v-btn>
   </form>
 </template>
 <script setup lang="ts">
@@ -17,7 +17,6 @@ import {ref} from "vue";
 import {mdiCheck, mdiLeadPencil} from "@mdi/js";
 import {useGamebookStore} from "@/application/stores/gamebook.store.ts";
 import {useRoute} from "vue-router";
-import MyButton from "@/ui/components/MyButton.vue";
 
 const route = useRoute();
 const gamebookStore = useGamebookStore();

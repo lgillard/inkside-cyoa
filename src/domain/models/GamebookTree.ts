@@ -1,5 +1,5 @@
-export interface Section { id: string, title: string }
-export interface Path {sourceId: string, targetId: string}
+import type {Path} from "@/domain/models/Path.ts";
+import type {Section} from "@/domain/models/Section.ts";
 
 export class GamebookTree {
   id: string;

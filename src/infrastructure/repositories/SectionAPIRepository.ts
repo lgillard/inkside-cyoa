@@ -6,14 +6,18 @@ export class SectionAPIRepository implements SectionRepository {
     return Promise.resolve(
       new Section(
         id,
-        id,
+        'Section ' + id,
         'Once upon a time in a old castle ... This paragraph is a part of your own story !',
         [
-          {targetId: id+1, title: "1st choice"},
-          {targetId: id+2, title: "2nd choice"},
+          {target: id+1, title: "1st choice"},
+          {target: id+2, title: "2nd choice"},
         ]
       )
     );
   }
 
+  create(section: Section): Promise<Section> {
+    section.id = 12;
+    return Promise.resolve(section);
+  }
 }

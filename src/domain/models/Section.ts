@@ -1,4 +1,4 @@
-interface Path {targetId: string, title: string}
+import type {Path} from "@/domain/models/Path.ts";
 
 export class Section {
   id: string;

@@ -4,6 +4,7 @@ import LoginView from "@/ui/views/LoginView.vue";
 import LibraryView from "@/ui/views/LibraryView.vue";
 import CreateGamebookView from "@/ui/views/CreateGamebookView.vue";
 import EditGamebookView from "@/ui/views/EditGamebookView.vue";
+import CreateSectionView from "@/ui/views/CreateSectionView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/gamebook/:gamebookId',
       name: 'edit-gamebook',
       component: EditGamebookView,
+    },
+    {
+      path: '/gamebook/:gamebookId/section/new',
+      name: 'new-section',
+      component: CreateSectionView,
     },
   ],
 })

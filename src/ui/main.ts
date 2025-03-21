@@ -34,6 +34,16 @@ const vuetify = createVuetify({
       mdi,
     },
   },
+  defaults: {
+    VTextField: { variant: 'outlined', color: 'primary' },
+    VTextarea: { variant: 'outlined', color: 'primary' },
+    VAutocomplete: { variant: 'outlined', color: 'primary' },
+    VSwitch: { variant: 'outlined', color: 'primary' },
+    VSelect: { variant: 'outlined', color: 'primary' },
+    VCombobox: { variant: 'outlined', color: 'primary' },
+    VBtnToggle: { variant: 'outlined', color: 'primary' },
+    VBtn: { variant: 'outlined', color: 'primary' },
+  },
   components,
   directives,
 })

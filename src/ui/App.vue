@@ -39,6 +39,10 @@ main {
   cursor: default;
 }
 
+header {
+  cursor: default;
+}
+
 .logo {
   height: 100px;
   width: 100px

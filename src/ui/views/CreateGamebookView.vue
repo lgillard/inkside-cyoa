@@ -38,7 +38,7 @@
         <!-- Pour centrer sur le livre et non sur sa légende -->
         <div class="col-spacer"></div>
       </div>
-      <button type="submit" class="text-h6">Passer à l'écriture</button>
+      <v-btn type="submit">Passer à l'écriture</v-btn>
     </v-form>
   </div>
 </template>
@@ -138,17 +138,5 @@
 button[type='submit'] {
   display: block;
   margin-left: auto;
-
-  color: rgba(var(--v-theme-primary));
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgba(var(--v-theme-primary));
-  border-radius: 4px;
-  padding: 4px;
-
-  &:hover {
-    color: rgba(var(--v-theme-secondary));
-    border-color: rgba(var(--v-theme-secondary));
-  }
 }
 </style>

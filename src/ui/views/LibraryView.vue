@@ -38,7 +38,7 @@
   const refreshShelfs = (gamebooksList: Array<Gamebook>) => {
     const booksByShelf = Math.trunc((window.innerWidth - 176) / 217);
 
-    shelfs.value = [[new Gamebook('0', 'Nouveau livre')]];
+    shelfs.value = [[Object.assign(new Gamebook(), {id: '0', title: 'Nouveau livre'})]];
     for(let i = 1; i<=gamebooksList.length; i++) {
       if(! shelfs.value[Math.trunc(i/booksByShelf)]) {
         shelfs.value[Math.trunc(i/booksByShelf)] = [];

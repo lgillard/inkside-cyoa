@@ -49,11 +49,11 @@ export class GamebookAPIRepository implements GamebookRepository {
         id,
         title: 'Alice au pays des enfers...',
         sections: [
-          {id: '1', title: '1'},
+          {id: '1', title: 'Section 1'},
 
-          {id: '2', title: '2'},
-          {id: '3', title: '3'},
-          {id: '4', title: '4'},
+          {id: '2', title: 'Section 2'},
+          {id: '3', title: 'Section 3'},
+          {id: '4', title: 'Section 4'},
         ],
         paths: [
           {sourceId: '1', targetId: '2'},

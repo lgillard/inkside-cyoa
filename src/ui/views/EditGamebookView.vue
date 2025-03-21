@@ -2,7 +2,7 @@
   <v-skeleton-loader v-if="gamebookStore.loading" type="card"/>
   <div v-else>
     <EditBookTitle/>
-    <MyButton @click="createSection">Nouvelle section</MyButton>
+    <v-btn @click="createSection">Nouvelle section</v-btn>
     <GamebookTree :gamebook="gamebookStore.currentGamebookTree"/>
   </div>
 </template>
@@ -12,7 +12,6 @@ import {useGamebookStore} from "@/application/stores/gamebook.store.ts";
 import {useRoute, useRouter} from "vue-router";
 import GamebookTree from "@/ui/components/_EditGamebookView/GamebookTree.vue";
 import EditBookTitle from "@/ui/components/_EditGamebookView/EditBookTitle.vue";
-import MyButton from "@/ui/components/MyButton.vue";
 
 const route = useRoute();
 const router = useRouter();
