@@ -21,6 +21,8 @@
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .shelf-bottom {
@@ -30,5 +32,7 @@
   position: absolute;
   bottom: 12px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 </style>

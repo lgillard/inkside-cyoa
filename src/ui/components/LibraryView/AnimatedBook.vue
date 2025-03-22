@@ -30,8 +30,7 @@
             <li></li>
           </ul>
           <ul class='book_spine'>
-            <li></li>
-            <li></li>
+            <li style="margin-left: 4px;"></li>
           </ul>
         </figure>
       </li>
@@ -59,9 +58,8 @@ const coverColorStyle = computed((): string => {
 </script>
 
 <style scoped lang="scss">
-::before,
-::after {
-  content: "";
+* {
+  border-radius: 12px;
 }
 
 ul {
@@ -131,26 +129,6 @@ button:focus {
 .book_spine li:first-child {
   background: #eee;
 }
-.book_spine li:last-child {
-  background: #333;
-}
-
-/* thickness of cover */
-
-.hardcover_front li:first-child:after,
-.hardcover_front li:first-child:before,
-.hardcover_front li:last-child:after,
-.hardcover_front li:last-child:before,
-.hardcover_back li:first-child:after,
-.hardcover_back li:first-child:before,
-.hardcover_back li:last-child:after,
-.hardcover_back li:last-child:before,
-.book_spine li:first-child:after,
-.book_spine li:first-child:before,
-.book_spine li:last-child:after,
-.book_spine li:last-child:before {
-  background: #999;
-}
 
 /* page */
 
@@ -160,7 +138,6 @@ button:focus {
   background: -ms-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
   background: linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
   box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
-  border-radius: 0px 5px 5px 0px;
 }
 
 /*
@@ -273,99 +250,6 @@ button:focus {
   transform: translateZ(-2px);
 }
 
-/* thickness of cover */
-.hardcover_front li:first-child:after,
-.hardcover_front li:first-child:before,
-.hardcover_front li:last-child:after,
-.hardcover_front li:last-child:before,
-.hardcover_back li:first-child:after,
-.hardcover_back li:first-child:before,
-.hardcover_back li:last-child:after,
-.hardcover_back li:last-child:before,
-.book_spine li:first-child:after,
-.book_spine li:first-child:before,
-.book_spine li:last-child:after,
-.book_spine li:last-child:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* HARDCOVER front */
-.hardcover_front li:first-child:after,
-.hardcover_front li:first-child:before {
-  width: 4px;
-  height: 100%;
-}
-
-.hardcover_front li:first-child:after {
-  -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-}
-
-.hardcover_front li:first-child:before {
-  -webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
-  -moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
-  transform: rotateY(90deg) translateZ(158px) translateX(2px);
-}
-
-.hardcover_front li:last-child:after,
-.hardcover_front li:last-child:before {
-  width: 4px;
-  height: 160px;
-}
-
-.hardcover_front li:last-child:after {
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
-}
-.hardcover_front li:last-child:before {
-  box-shadow: 0px 0px 30px 5px #333;
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
-}
-
-/* thickness of cover */
-
-.hardcover_back li:first-child:after,
-.hardcover_back li:first-child:before {
-  width: 4px;
-  height: 100%;
-}
-
-.hardcover_back li:first-child:after {
-  -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-}
-.hardcover_back li:first-child:before {
-  -webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
-  -moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
-  transform: rotateY(90deg) translateZ(158px) translateX(2px);
-}
-
-.hardcover_back li:last-child:after,
-.hardcover_back li:last-child:before {
-  width: 4px;
-  height: 160px;
-}
-
-.hardcover_back li:last-child:after {
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
-}
-
-.hardcover_back li:last-child:before {
-  box-shadow: 10px -1px 80px 20px #666;
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
-}
-
 /* BOOK SPINE */
 .book_spine {
   -webkit-transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
@@ -379,50 +263,6 @@ button:focus {
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
   transform: translateZ(2px);
-}
-
-.book_spine li:last-child {
-  -webkit-transform: translateZ(-2px);
-  -moz-transform: translateZ(-2px);
-  transform: translateZ(-2px);
-}
-
-/* thickness of book spine */
-.book_spine li:first-child:after,
-.book_spine li:first-child:before {
-  width: 4px;
-  height: 100%;
-}
-
-.book_spine li:first-child:after {
-  -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-  transform: rotateY(90deg) translateZ(-2px) translateX(2px);
-}
-
-.book_spine li:first-child:before {
-  -webkit-transform: rotateY(-90deg) translateZ(-12px);
-  -moz-transform: rotateY(-90deg) translateZ(-12px);
-  transform: rotateY(-90deg) translateZ(-12px);
-}
-
-.book_spine li:last-child:after,
-.book_spine li:last-child:before {
-  width: 4px;
-  height: 16px;
-}
-
-.book_spine li:last-child:after {
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
-}
-
-.book_spine li:last-child:before {
-  box-shadow: 5px -1px 100px 40px rgba(0, 0, 0, 0.2);
-  -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
-  -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
-  transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
 }
 
 .page,
@@ -567,17 +407,6 @@ button:focus {
   backface-visibility: hidden;
 }
 
-.coverDesign::after {
-  background-image: -webkit-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
-  background-image: -moz-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
-  background-image: linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
 .coverDesign h1 {
   color: #fff;
   font-size: 1.5em;
@@ -630,26 +459,6 @@ button:focus {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 10;
-}
-
-.ribbon::before,
-.ribbon::after{
-  position: absolute;
-  top: -20px;
-  width: 0;
-  height: 0;
-  border-bottom: 20px solid #c0392b;
-  border-top: 20px solid transparent;
-}
-
-.ribbon::before{
-  left: -20px;
-  border-left: 20px solid transparent;
-}
-
-.ribbon::after{
-  right: -20px;
-  border-right: 20px solid transparent;
 }
 
 /* Media Queries */
