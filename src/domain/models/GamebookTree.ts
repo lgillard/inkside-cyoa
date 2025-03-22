@@ -5,12 +5,10 @@ export class GamebookTree {
   id: string;
   title: string;
   sections: Array<Section>;
-  paths: Array<Path>;
 
   constructor() {
     this.id = '';
     this.title = '';
     this.sections = [];
-    this.paths = [];
   }
 }

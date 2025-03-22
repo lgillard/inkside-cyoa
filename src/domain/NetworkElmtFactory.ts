@@ -18,8 +18,14 @@ export class NetworkElmtFactory {
 
   buildEdges(): Edges {
     const result: Edges = {};
-    for (const path of this.gamebookTree.paths) {
-      result[path.source+'_to_'+path.target] = {target: path.target, source: path.source, label: path.title};
+    for (const section of this.gamebookTree.sections) {
+      for (const path of section.paths) {
+        result[path.source + '_to_' + path.target] = {
+          target: path.target,
+          source: path.source,
+          label: path.title
+        };
+      }
     }
     return result;
   }

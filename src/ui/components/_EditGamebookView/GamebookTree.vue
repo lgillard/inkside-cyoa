@@ -23,6 +23,9 @@ import {
 import dagre from "dagre/dist/dagre.min.js";
 import {GamebookTree} from "@/domain/models/GamebookTree.ts";
 import {NetworkElmtFactory} from "@/domain/NetworkElmtFactory.ts";
+import {useTheme} from "vuetify";
+
+const colors = useTheme().global.current.value.colors;
 
 const configs = vNG.defineConfigs({
   view: {
@@ -33,7 +36,22 @@ const configs = vNG.defineConfigs({
   node: {
     draggable: false,
     selectable: 1,
+    normal: { color: colors.secondary },
+    hover: { color: colors.secondary },
+    focusring: { color: colors.secondary },
+    label: { color: colors["on-background"] },
   },
+  edge: {
+    selectable: 1,
+    normal: { color: colors.secondary },
+    hover: { color: colors.secondary },
+    selected: {
+      width: 6,
+      color: colors.primary,
+      dasharray: "0",
+    },
+    label: { color: colors["on-background"] },
+  }
 })
 
 const { gamebook = new GamebookTree()} = defineProps({gamebook: GamebookTree});
