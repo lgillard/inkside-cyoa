@@ -8,9 +8,8 @@ import 'vuetify/styles'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import {
-  myCustomDarkTheme, myCustomDeuteranopiaDarkTheme,
-  myCustomDeuteranopiaLightTheme,
-  myCustomLightTheme
+  myCustomDarkTheme,
+  myCustomDeuteranopiaDarkTheme
 } from "@/ui/themes.ts";
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
@@ -21,9 +20,7 @@ const vuetify = createVuetify({
   theme: {
     defaultTheme: 'myCustomDarkTheme',
     themes: {
-      myCustomLightTheme,
       myCustomDarkTheme,
-      myCustomDeuteranopiaLightTheme,
       myCustomDeuteranopiaDarkTheme,
     },
   },
@@ -35,8 +32,8 @@ const vuetify = createVuetify({
     },
   },
   defaults: {
-    VTextField: { variant: 'outlined', color: 'primary' },
-    VTextarea: { variant: 'outlined', color: 'primary' },
+    VTextField: { variant: 'outlined', color: 'primary', baseColor: "primary"},
+    VTextarea: { variant: 'outlined', color: 'primary', baseColor: "primary"},
     VAutocomplete: { variant: 'outlined', color: 'primary' },
     VSwitch: { variant: 'outlined', color: 'primary' },
     VSelect: { variant: 'outlined', color: 'primary' },
