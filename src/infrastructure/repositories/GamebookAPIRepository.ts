@@ -56,9 +56,9 @@ export class GamebookAPIRepository implements GamebookRepository {
           {id: '4', title: 'Section 4'},
         ],
         paths: [
-          {sourceId: '1', targetId: '2'},
-          {sourceId: '1', targetId: '3'},
-          {sourceId: '3', targetId: '4'},
+          {title: 'Tourner à gauche', source: '1', target: '2'},
+          {title: 'Tourner à droite',source: '1', target: '3'},
+          {title: 'Faire demi tour',source: '3', target: '4'},
         ]
       })
     );

@@ -19,7 +19,7 @@ export class NetworkElmtFactory {
   buildEdges(): Edges {
     const result: Edges = {};
     for (const path of this.gamebookTree.paths) {
-      result[path.sourceId+'_to_'+path.targetId] = {target: path.targetId, source: path.sourceId};
+      result[path.source+'_to_'+path.target] = {target: path.target, source: path.source, label: path.title};
     }
     return result;
   }

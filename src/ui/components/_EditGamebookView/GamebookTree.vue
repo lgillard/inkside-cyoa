@@ -6,14 +6,19 @@
     :edges="edges"
     :layouts="layouts"
     :configs="configs"
-  />
+  >
+    <template #edge-label="{ edge, ...slotProps }">
+      <v-edge-label :text="edge.label" align="center" vertical-align="above" v-bind="slotProps" />
+    </template>
+  </v-network-graph>
 </template>
 <script setup lang="ts">
 import {reactive, ref} from "vue";
 import * as vNG from "v-network-graph";
 import {
   type Layouts,
-  VNetworkGraph
+  VNetworkGraph,
+  VEdgeLabel
 } from "v-network-graph";
 import dagre from "dagre/dist/dagre.min.js";
 import {GamebookTree} from "@/domain/models/GamebookTree.ts";

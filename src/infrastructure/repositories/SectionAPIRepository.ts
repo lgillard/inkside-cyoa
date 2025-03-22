@@ -9,8 +9,8 @@ export class SectionAPIRepository implements SectionRepository {
         'Section ' + id,
         'Once upon a time in a old castle ... This paragraph is a part of your own story !',
         [
-          {target: id+1, title: "1st choice"},
-          {target: id+2, title: "2nd choice"},
+          {source: id, target: id+1, title: "1st choice"},
+          {source: id, target: id+2, title: "2nd choice"},
         ]
       )
     );
