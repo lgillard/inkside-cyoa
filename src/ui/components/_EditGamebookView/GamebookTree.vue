@@ -5,10 +5,17 @@
     :nodes="nodes"
     :edges="edges"
     :layouts="layouts"
-    :configs="configs"
-  >
+    :configs="configs">
     <template #edge-label="{ edge, ...slotProps }">
       <v-edge-label :text="edge.label" align="center" vertical-align="above" v-bind="slotProps" />
+    </template>
+    <template #override-node="{ nodeId, scale, config, ...slotProps }">
+      <a xlink:href="#"
+         @keydown.enter="handleNodeClick(nodeId, $event)"
+         @keydown.space="handleNodeClick(nodeId, $event)"
+         @click="handleNodeClick(nodeId, $event)">
+        <circle :r="config.radius * scale" :fill="config.color" v-bind="slotProps" />
+      </a>
     </template>
   </v-network-graph>
 </template>
@@ -93,6 +100,11 @@ function updateNodesPosition() {
     const y = g.node(nodeId).y
     layouts.nodes[nodeId] = { x, y }
   })
+}
+
+function handleNodeClick(nodeId: string, event: KeyboardEvent) {
+  event.preventDefault();
+  selectedNodes.value = [nodeId];
 }
 </script>
 
