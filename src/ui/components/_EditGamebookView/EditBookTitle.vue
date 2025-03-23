@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex" v-if="!titleUpdInProgress">
     <h2 class="text-h4 my-4">{{gamebookTitle}}</h2>
-    <button id="edit-gamebook-title" class="btn" @click="() => titleUpdInProgress = true">
+    <v-btn class="text-primary btn" variant="text" @click="() => titleUpdInProgress = true">
       <v-icon :icon="mdiLeadPencil" title="Modifier le titre du livre"/>
-    </button>
+    </v-btn>
   </div>
   <form class="d-flex" v-else>
     <input type="text" class="text-primary text-h4 my-4" v-model="gamebookTitle"/>
@@ -36,15 +36,7 @@ function saveTitle() {
 
 <style lang="scss">
 .btn {
-  margin-left: 12px;
   margin-top: auto;
   margin-bottom: auto;
-}
-#edit-gamebook-title {
-  color: rgba(var(--v-theme-primary));
-
-  &:hover {
-    color: rgba(var(--v-theme-secondary));
-  }
 }
 </style>
