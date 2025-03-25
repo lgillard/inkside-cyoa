@@ -24,12 +24,12 @@
       <fieldset>
         <legend>Type</legend>
 
-        <v-btn-toggle v-if="isEnd" v-model="types" class="text-primary">
+        <v-btn-toggle v-if="isEnd" v-model="types">
           <v-btn value="tragicEnd" role="checkbox"><v-icon :icon="mdiSkull" class="mr-2"/>Fin tragique</v-btn>
           <v-btn value="happyEnd" role="checkbox"><v-icon :icon="mdiTrophyVariant" class="mr-2"/>Fin victorieuse</v-btn>
         </v-btn-toggle>
 
-        <v-btn-toggle v-if="!isEnd" v-model="types" class="text-primary">
+        <v-btn-toggle v-if="!isEnd" v-model="types">
           <v-btn value="fight" role="checkbox"><v-icon :icon="mdiSword" class="mr-2"/>Combat</v-btn>
           <v-btn value="discovery" role="checkbox"><v-icon :icon="mdiTreasureChest" class="mr-2"/>Découverte</v-btn>
           <v-btn value="injury" role="checkbox"><v-icon :icon="mdiHeartBroken" class="mr-2"/>Blessure</v-btn>

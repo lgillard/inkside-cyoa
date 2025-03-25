@@ -32,8 +32,8 @@ const vuetify = createVuetify({
     },
   },
   defaults: {
-    VTextField: { variant: 'outlined', color: 'primary', baseColor: "primary"},
-    VTextarea: { variant: 'outlined', color: 'primary', baseColor: "primary"},
+    VTextField: { variant: 'outlined', color: 'primary' },
+    VTextarea: { variant: 'outlined', color: 'primary' },
     VAutocomplete: { variant: 'outlined', color: 'primary' },
     VSwitch: { variant: 'outlined', color: 'primary' },
     VSelect: { variant: 'outlined', color: 'primary' },
