@@ -11,7 +11,7 @@ export class NetworkElmtFactory {
   buildNodes(): Nodes {
     const result: Nodes = {};
     for (const section of this.gamebookTree.sections) {
-      result[section.id] = {id: section.id, name: section.title};
+      result[section.id] = {id: section.id, name: section.title, obj: section};
     }
     return result;
   }

@@ -3,7 +3,7 @@
   <div v-else>
     <EditBookTitle/>
     <v-btn @click="createSection">Nouvelle section</v-btn>
-    <GamebookTree :gamebook="gamebookStore.currentGamebookTree"/>
+    <GamebookTree :gamebook="gamebookStore.currentGamebookTree" class="mt-5"/>
   </div>
 </template>
 
