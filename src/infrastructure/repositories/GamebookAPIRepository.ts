@@ -53,6 +53,8 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '1',
             title: 'Labirynthe de Thanosyn',
             content: 'Vous pénétrer dans les ténèbre du labyrinthe...',
+            isEnd: false,
+            types: [],
             paths: [
               {title: 'Tourner à gauche', source: '1', target: '2'},
               {title: 'Tourner à droite', source: '1', target: '3'},
@@ -61,11 +63,15 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '2',
             title: 'Descente aux enfers',
             content: 'Vous trébucher sur un piège et mourrez de façon ridicule... Dommage.',
+            isEnd: true,
+            types: ['tragicEnd'],
             paths: []
           }, {
             id: '3',
             title: 'Sortie du labirynthe',
             content: '',
+            isEnd: false,
+            types: [],
             paths: [
               {title: 'Franchir la sortie', source: '3', target: '4'}
             ]
@@ -73,6 +79,8 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '4',
             title: 'Happy end',
             content: 'Bravo vous vous en êtes sorti',
+            isEnd: false,
+            types: [],
             paths: [
               {title: 'Franchir la sortie', source: '4', target: '5'}
             ]
@@ -80,6 +88,8 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '5',
             title: 'Paradis du chat',
             content: 'blabla',
+            isEnd: false,
+            types: [],
             paths: [
               {title: 'Combattre', source: '5', target: '6'}
             ]
@@ -87,6 +97,8 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '6',
             title: 'Combat des démons',
             content: 'aie',
+            isEnd: false,
+            types: ['fight'],
             paths: [
               {title: 'Attraper la poële', source: '6', target: '7'},
               {title: 'Attraper la machette', source: '6', target: '8'}
@@ -95,11 +107,15 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '7',
             title: 'Assommer le monstre',
             content: 'il vous regarde et ris',
+            isEnd: false,
+            types: [],
             paths: []
           }, {
             id: '8',
             title: 'Couper la tête',
             content: 'La lame semble tranchante',
+            isEnd: false,
+            types: [],
             paths: [
               {title: 'Combattre', source: '8', target: '9'}
             ]
@@ -107,6 +123,8 @@ export class GamebookAPIRepository implements GamebookRepository {
             id: '9',
             title: 'Happy end',
             content: 'Bravo vous vous en êtes sorti',
+            isEnd: true,
+            types: ['happyEnd'],
             paths: []
           },
         ],
