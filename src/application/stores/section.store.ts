@@ -21,12 +21,12 @@ export const useSectionStore = defineStore('section', {
   }),
 
   actions: {
-    async fetchById(id: string): Promise<Section> {
+    async create(formData: Section): Promise<Section> {
       this.loading = true;
       this.error = null;
 
       try {
-        const section = await sectionRepository.getById(id);
+        const section = await sectionRepository.create(formData);
 
         this.currentSection = section;
         return section;
@@ -38,12 +38,12 @@ export const useSectionStore = defineStore('section', {
       }
     },
 
-    async create(formData: Section): Promise<Section> {
+    async update(formData: Section): Promise<Section> {
       this.loading = true;
       this.error = null;
 
       try {
-        const section = await sectionRepository.create(formData);
+        const section = await sectionRepository.update(formData);
 
         this.currentSection = section;
         return section;
