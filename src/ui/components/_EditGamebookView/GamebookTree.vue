@@ -57,6 +57,17 @@
                   :stroke="config.strokeColor"
                   :stroke-width="config.strokeWidth"
                   :stroke-dasharray="config.strokeDasharray"/>
+
+          <g v-if="nodes[nodeId].obj.types"
+             :transform="`translate(-${config.radius * scale * 0.75}, -${config.radius * scale * 0.75}) scale(${scale})`">
+            <path v-if="nodes[nodeId].obj.types.includes('tragicEnd')" :d="mdiSkull" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('happyEnd')" :d="mdiTrophyVariant" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('fight')" :d="mdiSword" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('discovery')" :d="mdiTreasureChest" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('injury')" :d="mdiHeartBroken" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('care')" :d="mdiLeaf" :fill="colors.background"/>
+            <path v-if="nodes[nodeId].obj.types.includes('meet')" :d="mdiAccountCowboyHat" :fill="colors.background"/>
+          </g>
           <title>{{nodes[nodeId].name}}</title>
           <desc>
             Prochaines sections:
@@ -82,11 +93,18 @@ import {GamebookTree} from "@/domain/models/GamebookTree.ts";
 import {NetworkElmtFactory} from "@/domain/NetworkElmtFactory.ts";
 import {useTheme} from "vuetify";
 import {
+  mdiAccountCowboyHat,
   mdiEye,
   mdiEyeOff,
+  mdiHeartBroken,
   mdiImageFilterCenterFocusStrong,
+  mdiLeaf,
   mdiMagnifyMinus,
-  mdiMagnifyPlus
+  mdiMagnifyPlus,
+  mdiSkull,
+  mdiSword,
+  mdiTreasureChest,
+  mdiTrophyVariant
 } from "@mdi/js";
 import SectionMenu from "@/ui/components/_EditGamebookView/SectionMenu.vue";
 
@@ -189,7 +207,7 @@ function updateNodesPosition() {
 function selectNode(nodeId: string, event: KeyboardEvent) {
   event.preventDefault();
 
-  // As "view:click" event is not working I need to use v-model to detect node unselected. 
+  // As "view:click" event is not working I need to use v-model to detect node unselected.
   // May PointerEvent be triggered after v-model changes so PointerEvent trigger unselection
   if(selectedNodes.value[0] !== nodeId || event instanceof PointerEvent) {
     selectedNodes.value = [nodeId];
@@ -198,7 +216,7 @@ function selectNode(nodeId: string, event: KeyboardEvent) {
     menuX.value = coords.x;
     menuY.value = coords.y;
 
-  // Unselect if already selected
+    // Unselect if already selected
   } else {
     selectedNodes.value = [];
   }
