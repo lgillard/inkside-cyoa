@@ -47,27 +47,22 @@
       <template #edge-label="{ edge, ...slotProps }">
         <v-edge-label :text="edge.label" align="center" vertical-align="above" v-bind="slotProps" />
       </template>
-      <template #override-node="{ nodeId, scale, config, ...slotProps }">
+      <template #override-node="{ nodeId, scale, config, ...slotProps }" >
         <a xlink:href="#"
            @keydown.enter="selectNode(nodeId, $event)"
            @keydown.space="selectNode(nodeId, $event)"
-           @click="selectNode(nodeId, $event)">
+           @click="selectNode(nodeId, $event)"
+           :set="sectionType = SectionTypeEnum.getTypeBySlug(nodes[nodeId].obj.types[0] ?? '')">
           <circle :r="config.radius * scale"
-                  :fill="config.color"
+                  :fill="sectionType?.nodeColor ?? config.color"
                   v-bind="slotProps"
                   :stroke="config.strokeColor"
                   :stroke-width="config.strokeWidth"
                   :stroke-dasharray="config.strokeDasharray"/>
 
-          <g v-if="nodes[nodeId].obj.types"
+          <g v-if="sectionType"
              :transform="`translate(-${config.radius * scale * 0.75}, -${config.radius * scale * 0.75}) scale(${scale})`">
-            <path v-if="nodes[nodeId].obj.types.includes('tragicEnd')" :d="mdiSkull" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('happyEnd')" :d="mdiTrophyVariant" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('fight')" :d="mdiSword" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('discovery')" :d="mdiTreasureChest" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('injury')" :d="mdiHeartBroken" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('care')" :d="mdiLeaf" :fill="colors.background"/>
-            <path v-if="nodes[nodeId].obj.types.includes('meet')" :d="mdiAccountCowboyHat" :fill="colors.background"/>
+            <path :d="sectionType.icon" :fill="colors.background"/>
           </g>
           <title>{{nodes[nodeId].name}}</title>
           <desc>
@@ -91,23 +86,17 @@ import * as vNG from "v-network-graph";
 import {type Layouts, VEdgeLabel, VNetworkGraph} from "v-network-graph";
 import dagre from "dagre/dist/dagre.min.js";
 import {GamebookTree} from "@/domain/models/GamebookTree.ts";
-import {NetworkElmtFactory} from "@/domain/NetworkElmtFactory.ts";
 import {useTheme} from "vuetify";
 import {
-  mdiAccountCowboyHat,
   mdiEye,
   mdiEyeOff,
-  mdiHeartBroken,
   mdiImageFilterCenterFocusStrong,
-  mdiLeaf,
   mdiMagnifyMinus,
   mdiMagnifyPlus,
-  mdiSkull,
-  mdiSword,
-  mdiTreasureChest,
-  mdiTrophyVariant
 } from "@mdi/js";
 import SectionMenu from "@/ui/components/_EditGamebookView/SectionMenu.vue";
+import {NetworkElmtFactory} from "@/domain/NetworkElmtFactory.ts";
+import {SectionTypeEnum} from "@/domain/enums/SectionTypeEnum.ts";
 
 const colors = useTheme().global.current.value.colors;
 
@@ -169,7 +158,7 @@ const edges = ref(networkFactory.buildEdges());
 const layouts: Layouts = reactive({
   nodes: {},
 })
-const selectedNodes = ref<string[]>([])
+const selectedNodes = ref<string[]>([]);
 
 const menuX = ref(0);
 const menuY = ref(0);

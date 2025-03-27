@@ -26,16 +26,23 @@
           <legend>Type</legend>
 
           <v-btn-toggle v-if="section.isEnd" v-model="section.types">
-            <v-btn value="tragicEnd" role="checkbox"><v-icon :icon="mdiSkull" class="mr-2"/>Fin tragique</v-btn>
-            <v-btn value="happyEnd" role="checkbox"><v-icon :icon="mdiTrophyVariant" class="mr-2"/>Fin victorieuse</v-btn>
+            <v-btn v-for="type of SectionTypeEnum.getTypesByCategory('end')"
+                   :key="type.slug"
+                   :value="type.slug"
+                   role="checkbox">
+              <v-icon :icon="type.icon" class="mr-2"/>
+              {{type.label}}
+            </v-btn>
           </v-btn-toggle>
 
-          <v-btn-toggle v-if="!section.isEnd" v-model="section.types">
-            <v-btn value="fight" role="checkbox"><v-icon :icon="mdiSword" class="mr-2"/>Combat</v-btn>
-            <v-btn value="discovery" role="checkbox"><v-icon :icon="mdiTreasureChest" class="mr-2"/>Découverte</v-btn>
-            <v-btn value="injury" role="checkbox"><v-icon :icon="mdiHeartBroken" class="mr-2"/>Blessure</v-btn>
-            <v-btn value="care" role="checkbox"><v-icon :icon="mdiLeaf" class="mr-2"/>Soin</v-btn>
-            <v-btn value="meet" role="checkbox"><v-icon :icon="mdiAccountCowboyHat" class="mr-2"/>Rencontre</v-btn>
+          <v-btn-toggle v-else v-model="section.types">
+            <v-btn v-for="type of SectionTypeEnum.getTypesByCategory('normal')"
+                   :key="type.slug"
+                   :value="type.slug"
+                   role="checkbox">
+              <v-icon :icon="type.icon" class="mr-2"/>
+              {{type.label}}
+            </v-btn>
           </v-btn-toggle>
         </fieldset>
       </section>
@@ -100,6 +107,7 @@ import {
 import { computed, onBeforeMount, ref } from "vue";
 import { RandomTitleGenerator } from "@/domain/services/RandomTitleGenerator.ts";
 import type {Section} from "@/domain/models/Section.ts";
+import {SectionTypeEnum} from "@/domain/enums/SectionTypeEnum.ts";
 
 const route = useRoute();
 const router = useRouter();
