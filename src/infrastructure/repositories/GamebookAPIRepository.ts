@@ -3,10 +3,6 @@ import {Gamebook} from "@/domain/models/Gamebook.ts";
 import {GamebookTree} from "@/domain/models/GamebookTree.ts";
 
 export class GamebookAPIRepository implements GamebookRepository {
-  delete(id: string): Promise<void> {
-    return Promise.resolve(undefined);
-  }
-
   getAll(): Promise<Gamebook[]> {
     return Promise.resolve([
       Object.assign(new Gamebook(), {
@@ -28,10 +24,6 @@ export class GamebookAPIRepository implements GamebookRepository {
         coverColor: '#EE8152',
       }),
     ]);
-  }
-
-  getById(id: string): Promise<Gamebook> {
-    return Promise.resolve(new Gamebook('1', 'Mon incroyable aventure', 'Monsieur Charles', '#EE8152'));
   }
 
   create(gamebook: Gamebook): Promise<Gamebook> {

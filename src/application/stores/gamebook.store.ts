@@ -41,23 +41,6 @@ export const useGamebookStore = defineStore('gamebook', {
       }
     },
 
-    async fetchGamebookById(id: string): Promise<Gamebook> {
-      this.loading = true;
-      this.error = null;
-
-      try {
-        const gamebook = await gamebookRepository.getById(id);
-
-        this.currentGamebook = gamebook;
-        return gamebook;
-      } catch (error: unknown) {
-        this.error = error.message;
-        throw error;
-      } finally {
-        this.loading = false;
-      }
-    },
-
     async fetchGamebookTree(id: string): Promise<GamebookTree> {
       this.loading = true;
       this.error = null;
@@ -140,29 +123,6 @@ export const useGamebookStore = defineStore('gamebook', {
         }
 
         return savedGamebook;
-      } catch (error: unknown) {
-        this.error = error.message;
-        throw error;
-      } finally {
-        this.loading = false;
-      }
-    },
-
-    async deleteGamebook(id: string): Promise<void> {
-      this.loading = true;
-      this.error = null;
-
-      try {
-        await gamebookRepository.delete(id);
-
-        this.gamebooks = this.gamebooks.filter(g => g.id !== id);
-
-        if (this.currentGamebook?.id === id) {
-          this.currentGamebook = null;
-        }
-        if (this.currentGamebookTree?.id === id) {
-          this.currentGamebookTree = null;
-        }
       } catch (error: unknown) {
         this.error = error.message;
         throw error;
