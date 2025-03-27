@@ -1,0 +1,258 @@
+{
+  "title": "Le Développeureuse qui en met plein la Vue",
+  "sections": [
+    {
+      "id": "1",
+      "title": "Le choix du framework",
+      "content": "Après plusieurs années à développer en JavaScript vanilla, vous êtes chargé de choisir un framework pour le nouveau projet de votre entreprise. Trois options s'offrent à vous : React, Angular et Vue.js. Après quelque temps de réflexion vous décider de tenter l'aventure Vue.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Explorer Vue.js", "source": "1", "target": "4" }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "La découverte de Vue.js",
+      "content": "Vous explorez Vue.js et êtes immédiatement séduit par sa clarté. Les concepts sont présentés progressivement, la documentation est excellente, et le framework semble trouver le juste équilibre entre simplicité et puissance. La syntaxe de template vous paraît intuitive, et le système de réactivité est élégant.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Créer un prototype avec Vue.js", "source": "4", "target": "7" },
+        { "title": "Explorer d'abord la communauté Vue", "source": "4", "target": "8" }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Premier prototype Vue.js",
+      "content": "Vous créez rapidement un prototype fonctionnel avec Vue.js. En quelques jours seulement, vous avez une application réactive avec plusieurs composants interactifs. Les concepts de props, events et slots vous semblent naturels. Votre équipe est impressionnée par votre productivité.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Présenter le prototype à la direction", "source": "7", "target": "9" },
+        { "title": "Explorer les fonctionnalités avancées de Vue", "source": "7", "target": "10" }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Rencontre avec la communauté Vue",
+      "content": "Vous rejoignez plusieurs forums et groupes Discord dédiés à Vue.js. La communauté est accueillante et dynamique. Lors d'une session d'entraide, vous rencontrez Sarah, une développeuse senior spécialisée en Vue qui propose de vous guider dans vos premiers pas. Cette connexion pourrait être précieuse.",
+      "isEnd": false,
+      "types": ["meet"],
+      "paths": [
+        { "title": "Accepter le mentorat de Sarah", "source": "8", "target": "11" },
+        { "title": "Continuer à apprendre par vous-même", "source": "8", "target": "7" }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Présentation réussie",
+      "content": "Votre prototype Vue.js impressionne la direction. La fluidité de l'application, la rapidité avec laquelle vous l'avez développée et la facilité avec laquelle vous pouvez expliquer l'architecture convainquent même les plus sceptiques. Le feu vert est donné pour utiliser Vue.js sur le projet complet.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Commencer le développement du projet réel", "source": "9", "target": "13" }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Confrontation avec la réactivité",
+      "content": "En explorant les fonctionnalités avancées de Vue, vous rencontrez un problème épineux de réactivité. Les mises à jour de votre tableau d'objets imbriqués ne sont pas détectées correctement. Après plusieurs heures frustrantes de débogage, vous commencez à douter de votre choix de framework.",
+      "isEnd": false,
+      "types": ["fight"],
+      "paths": [
+        { "title": "Chercher de l'aide en ligne", "source": "10", "target": "14" },
+        { "title": "Abandonner et essayer un autre framework", "source": "10", "target": "15" }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Mentorat productif",
+      "content": "Le mentorat de Sarah s'avère inestimable. Elle vous guide à travers les subtilités de Vue.js, partageant des patterns avancés et des astuces que vous n'auriez pas découverts seul. Grâce à ses conseils, vous progressez rapidement et évitez plusieurs écueils classiques.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Appliquer ces connaissances à votre projet", "source": "11", "target": "16" },
+        { "title": "Contribuer à l'écosystème Vue open-source", "source": "11", "target": "17" }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Le défi de l'architecture",
+      "content": "Vous commencez le développement du projet réel et vous heurtez rapidement à des questions d'architecture. Comment structurer une application plus complexe ? Comment gérer l'état global ? Vuex semble être la solution standard, mais sa mise en œuvre vous semble complexe.",
+      "isEnd": false,
+      "types": ["fight"],
+      "paths": [
+        { "title": "Implémenter Vuex malgré la complexité", "source": "13", "target": "20" },
+        { "title": "Opter pour une solution d'état plus simple", "source": "13", "target": "21" }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Solution communautaire",
+      "content": "Vous postez votre problème de réactivité sur le forum Vue.js. En moins d'une heure, vous recevez plusieurs réponses. L'une d'elles pointe exactement vers votre erreur : vous avez oublié d'utiliser Vue.set() pour les modifications de tableaux imbriqués. Une fois corrigé, tout fonctionne parfaitement.",
+      "isEnd": false,
+      "types": ["care"],
+      "paths": [
+        { "title": "Remercier la communauté et continuer le projet", "source": "14", "target": "13" },
+        { "title": "Documenter cette solution pour aider d'autres développeurs", "source": "14", "target": "22" }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Abandon prématuré",
+      "content": "Frustré par le problème de réactivité, vous décidez d'abandonner Vue.js et de revenir à React. Malheureusement, ce changement tardif entraîne des délais supplémentaires et sème la confusion dans l'équipe. Votre crédibilité en tant que décideur technique est sérieusement entamée.",
+      "isEnd": true,
+      "types": ["tragicEnd"],
+      "paths": []
+    },
+    {
+      "id": "16",
+      "title": "Architecture robuste",
+      "content": "Vous appliquez les connaissances acquises avec Sarah à votre projet. L'architecture que vous mettez en place est élégante et évolutive : composants atomiques, gestion d'état optimisée, routing intelligent... Le projet avance rapidement et la base de code reste maintenable malgré sa croissance.",
+      "isEnd": false,
+      "types": ["discovery"],
+      "paths": [
+        { "title": "Ajouter des tests automatisés", "source": "16", "target": "23" },
+        { "title": "Se concentrer sur l'expérience utilisateur", "source": "16", "target": "24" }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Contributeur open-source",
+      "content": "Inspiré par votre mentorat, vous commencez à contribuer à des projets Vue.js open-source. Votre première pull request est acceptée sur un plugin populaire. Ce sentiment d'appartenance à la communauté et de contribution au-delà de votre travail quotidien vous procure une immense satisfaction.",
+      "isEnd": false,
+      "types": ["meet"],
+      "paths": [
+        { "title": "Continuer les contributions tout en travaillant sur votre projet", "source": "17", "target": "25" },
+        { "title": "Créer votre propre bibliothèque Vue", "source": "17", "target": "26" }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Maîtrise de Vuex",
+      "content": "Vous décidez d'implémenter Vuex malgré sa complexité initiale. Après quelques semaines d'apprentissage, vous maîtrisez les concepts de store, mutations, actions et getters. La gestion d'état centralisée apporte une nouvelle dimension à votre application : prévisibilité, débogage facilité et scalabilité.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Finaliser le projet avec cette architecture robuste", "source": "20", "target": "31" },
+        { "title": "Explorer Vue 3 et la Composition API", "source": "20", "target": "32" }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "Solution d'état simplifiée",
+      "content": "Vous optez pour une solution d'état plus simple : un store injecté via l'API provide/inject de Vue. Cette approche plus légère est suffisante pour votre cas d'usage et beaucoup plus facile à comprendre pour l'équipe. Le développement s'accélère considérablement.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Livrer le projet dans les délais", "source": "21", "target": "33" },
+        { "title": "Ajouter des fonctionnalités avancées", "source": "21", "target": "34" }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "Documentation et partage",
+      "content": "Vous documentez soigneusement la solution au problème de réactivité et publiez un article de blog détaillé. Votre article est repéré par l'équipe Vue.js officielle qui le partage dans leur newsletter. Cette reconnaissance renforce votre confiance et votre statut dans la communauté.",
+      "isEnd": false,
+      "types": ["discovery"],
+      "paths": [
+        { "title": "Continuer à partager votre expertise Vue", "source": "22", "target": "35" },
+        { "title": "Revenir au développement de votre projet principal", "source": "22", "target": "13" }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "Tests complets",
+      "content": "Vous implémentez une suite de tests complète pour votre application Vue.js : tests unitaires avec Jest, tests de composants avec Vue Test Utils, et tests end-to-end avec Cypress. Cette infrastructure de test vous permet de refactoriser en toute confiance et garantit la stabilité à long terme.",
+      "isEnd": false,
+      "types": ["care"],
+      "paths": [
+        { "title": "Préparer le déploiement en production", "source": "23", "target": "36" }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "Excellence UX",
+      "content": "Vous vous concentrez sur l'expérience utilisateur, exploitant les capacités de Vue.js pour créer des interactions fluides et intuitives. Animations de transition, validation de formulaires intelligente, feedback instantané... Les premiers retours utilisateurs sont dithyrambiques.",
+      "isEnd": false,
+      "types": [],
+      "paths": [
+        { "title": "Publier votre système de composants UX", "source": "24", "target": "37" },
+        { "title": "Finaliser et déployer l'application", "source": "24", "target": "36" }
+      ]
+    },
+    {
+      "id": "25",
+      "title": "Double succès",
+      "content": "Vous parvenez à équilibrer vos contributions open-source et votre projet professionnel. Cette double expérience enrichit vos compétences et votre réseau. Votre application professionnelle bénéficie de techniques apprises dans la communauté, tandis que vos contributions open-source s'inspirent de cas d'usage réels.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "26",
+      "title": "Bibliothèque reconnue",
+      "content": "Vous créez votre propre bibliothèque Vue.js, vous partez billes en tête mais malheureusement votre solutions ne rencontre pas le succès escompté.",
+      "isEnd": true,
+      "types": ["tragicEnd"],
+      "paths": []
+    },
+    {
+      "id": "31",
+      "title": "Projet exemplaire",
+      "content": "Vous finalisez le projet avec l'architecture Vuex. L'application est robuste, évolutive et maintenable. Lors de la présentation finale, les stakeholders sont impressionnés par la qualité et les performances. Votre équipe est félicitée, et vous êtes reconnu comme expert Vue.js dans votre organisation.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "32",
+      "title": "Évolution vers Vue 3",
+      "content": "Vous explorez Vue 3 et sa Composition API. Cette nouvelle approche résout élégamment plusieurs limitations que vous aviez rencontrées. Vous décidez de migrer progressivement votre projet vers Vue 3, profitant de meilleures performances et d'une architecture plus modulaire.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "33",
+      "title": "Livraison dans les délais",
+      "content": "Grâce à votre approche pragmatique de la gestion d'état, vous livrez le projet dans les délais prévus. L'application répond à toutes les exigences fonctionnelles et offre une expérience utilisateur fluide. Le client est satisfait et envisage déjà de vous confier la phase suivante du projet.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "34",
+      "title": "Surcharge fonctionnelle",
+      "content": "En voulant ajouter trop de fonctionnalités avancées sans l'architecture adéquate, vous surchargez l'application. Les performances se dégradent, les bugs se multiplient et la maintenance devient cauchemardesque. Le projet dépasse largement son budget et ses délais.",
+      "isEnd": true,
+      "types": ["tragicEnd"],
+      "paths": []
+    },
+    {
+      "id": "35",
+      "title": "Carrière d'expert Vue",
+      "content": "Vous continuez à partager votre expertise Vue.js à travers des articles, des conférences et des contributions open-source. Votre réputation grandit, et vous recevez des offres pour donner des formations et intervenir comme consultant. Cette nouvelle orientation de carrière vous apporte épanouissement et reconnaissance.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "36",
+      "title": "Déploiement réussi",
+      "content": "Vous déployez votre application Vue.js en production. Le lancement se déroule sans accroc, et les utilisateurs adoptent rapidement la nouvelle interface. Les métriques d'utilisation dépassent les attentes, et la direction vous félicite pour ce succès qui contribue significativement aux objectifs de l'entreprise.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    },
+    {
+      "id": "37",
+      "title": "Système de design reconnu",
+      "content": "Vous publiez votre système de composants UX en open-source. Sa qualité et son élégance attirent l'attention de la communauté Vue.js. Plusieurs entreprises l'adoptent, et vous êtes invité à présenter votre travail lors d'une conférence majeure. Cette visibilité ouvre de nouvelles opportunités professionnelles.",
+      "isEnd": true,
+      "types": ["happyEnd"],
+      "paths": []
+    }
+  ]
+}
