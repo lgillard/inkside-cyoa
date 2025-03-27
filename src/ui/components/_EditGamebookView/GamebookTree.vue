@@ -42,7 +42,8 @@
       :nodes="nodes"
       :edges="edges"
       :layouts="layouts"
-      :configs="configs">
+      :configs="configs"
+      @update:zoomLevel="() => selectedNodes = []">
       <template #edge-label="{ edge, ...slotProps }">
         <v-edge-label :text="edge.label" align="center" vertical-align="above" v-bind="slotProps" />
       </template>
